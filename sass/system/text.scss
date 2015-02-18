@@ -1,0 +1,119 @@
+
+h1.hero{
+	@include font-size(40);
+	@include set_allHP(70,line-height);
+	font-weight:800; 
+	color:rgba(#000,.90);
+	letter-spacing:0px;
+	word-spacing:0px;
+}
+//h1
+h1{
+	@include font-size(30);
+	font-weight:400; 
+	color:rgba(#000,.90);
+	@include set_allHP(34,line-height);
+	letter-spacing:-1px;
+	word-spacing:0px;
+}
+//h3
+h3{
+	@include font-size(18);
+	font-weight:500; 
+	color:rgba(#000,.90);
+	letter-spacing:0px;
+	word-spacing:.5px;
+}
+h4,label{
+	@include set_allHP(17,line-height);	
+	@include font-size(14);
+	font-weight:500; 
+	color:rgba(#000,.90);
+	letter-spacing:-1px;
+	word-spacing:.5px;
+}
+//P bold/ strong
+p+p{margin-top: 10px;}
+p{	
+	@include font-size(14);
+	@include set_allHP(17,line-height);
+	font-weight:400; 
+	letter-spacing:0px;
+	word-spacing:-1px;
+}
+p.bold, strong, li{	
+	@include font-size(14);
+	font-weight:400;  
+	color:rgba(#000,.90);
+	@include set_allHP(24,line-height);
+	letter-spacing:0px;
+}
+//EM, CAptions
+em, p.caption,.helper{
+	@include font-size(14);
+	font-weight:400; 
+	color:rgba(#000,.70);
+	}
+.helper{
+	@include font-size(13);
+	font-weight:400; 
+	color:rgba(#000,.54);
+	letter-spacing:2px;
+}
+.error p{
+	@include font-size(13);
+	font-weight:400; 
+	letter-spacing:2px;
+}
+.menu-link i{
+	@include font-size(18);
+}
+//Handle Font Colors
+.red, .error{color:#eb3737;
+&h1.hero,h1.d3,&h1.d2,h1.d1,em, p.caption,.helper{color:rgba(#eb3737,.70);}
+&h1.headline, h1,h2,h3,p,p.bold,h4, li{color:rgba(#eb3737,.90);}
+}
+.green,.success{color: #2aad19;
+	&h1.hero,h1.d3,h1.d2,h1.d1,em, p.caption,.helper{color:rgba(#2aad19,.70);}
+	&h1.headline, h1,h2,h3,p,p.bold,h4,li{color:rgba(#2aad19,.90);}
+}
+.primary,.blue{color:#2b80b7;
+	&h1.hero,h1.d3,h1.d2,h1.d1,em, p.caption,.helper{color:rgba(#2b80b7,.70);}
+	&h1.headline, h1,h2,h3,p,p.bold,h4,li{color:rgba(#2b80b7,.90);}
+}
+.inverse, .white{
+	color:#fff;
+	&h1.hero,h1.d3,h1.d2,&h1.d1,em, p.caption,.helper{color:rgba(#fff,.70);}
+	&h1.headline, h1,h2,h3,p,p.bold,h4,li{color:rgba(#fff,.90);}
+}
+.mute, .gray{
+	color:#b0b0b0;
+	&h1.hero,h1.d3,h1.d2,&h1.d1,em, p.caption,.helper{color:rgba(#b0b0b0,.70);}
+	&h1.headline, h1,h2,h3,p,p.bold,h4,li{color:rgba(#b0b0b0,.90);}
+}
+.dark, .black{
+	color:#414141;
+	&h1.hero,h1.d3,h1.d2,&h1.d1,em, p.caption,.helper{color:rgba(#414141,.70);}
+	&h1.headline, h1,h2,h3,p,p.bold,h4,li{color:rgba(#414141,.90);}
+}
+
+.uppercase,.btn-naked, .btn-group .btn-cta{text-transform: uppercase; font-weight:400;}
+.btn-naked.no-case{text-transform: none;}
+
+.align-left{
+	text-align:left;
+}
+.align-right{
+	text-align:right;
+}
+.align-center{
+	text-align:center;
+}
+.inline{
+	display:inline;
+}
+.inline-text{
+	&h1.d4,h1.d3,h1.d2,h1.d1,em, p.caption,.helper,h1.headline, h1,h2,p,p.bold,h4,li{
+		display:inline-block;
+	}
+}	

@@ -1,0 +1,14 @@
+.span9{
+	float:none !important;
+	margin:0 auto;
+}
+.nav{
+	position: fixed!important;
+	top:0px;left:0px;
+	@include make-mobile-navbar(40px);
+	ul{@include color-nav(#298b96);}
+	border-top: 1px solid #58a9b3;
+	border-bottom: 1px solid #26818c;
+	@include color-nav(#298b96);
+	ul li a{color:white;}
+}

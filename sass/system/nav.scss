@@ -1,0 +1,14 @@
+.nav{
+	position: fixed!important;
+	top:0px;left:0px;
+	@include make-navbar(40px);
+	border-top: 1px solid #58a9b3;
+	border-bottom: 1px solid #26818c;
+	@include color-nav(#298b96);
+	ul li a{color:white;}
+	ul li{
+		@include make-subnav();	
+		ul{@include color-nav(#298b96);}
+		
+	}
+}

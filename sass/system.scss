@@ -1,0 +1,93 @@
+@import 'system/vars';
+@import 'system/gridSystem';
+@import 'system/general';
+@import 'system/buttons';
+@import 'system/text'; 
+@import 'system/nav';
+@import 'system/section';
+@import 'system/slider-base';
+@import 'system/slider-default';
+@import 'system/modal';
+@import 'system/wave';
+html,body {
+    -ms-touch-action: none;
+    font-family: 'Helvectica' sans-serif;
+}
+body,html{height:100%;}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+header{
+  text-align:center;
+  color:white;
+ display:block;
+  position:absolute;
+  top:0px;right:0px;left:0px;
+  height:30px;
+  background:#2f2f2f;
+  margin-bottom:10px;
+  div{text-align:center;}
+  a{color:white;}
+  a span{margin-left:5px;margin-right:5px;}
+}
+
+//BASIC BLOCK/POS
+body{
+ background: #eee; 
+}
+.EmberEngine{
+  margin-top: 40px;
+  padding:0px 10px;
+}
+/*-----------------------------MAIN VIEW---------------------------------*/
+
+.container{
+  position: relative;
+    .wrapper{padding:10px;}
+    @import 'system/header'; 
+    @import 'system/section';
+    @import 'system/buttons';
+    @import 'system/form';
+    margin:0 auto; 
+}
+//iPhone
+@media(max-width: 766px) {
+    @import 'system/iphone';
+}
+//iPAD
+@media (min-width: 768px) and (max-width: 1024px) {
+    @import 'system/ipad';
+}
+//LARGE SCREEN
+@media(min-width:1025px){
+    width:1280px;  
+}
+/*-----------------------------MAIN VIEW---------------------------------*/
+@media screen and (max-width: 766px) {
+    .display-desktop {display:none;visibility:hidden;}
+    .display-tablet {display:none;visibility:hidden;}
+    .display-mobile {display:block;visibility:visible;}
+    .not-mobile {display:none;visibility:hidden;}
+    .not-desktop {display:block;visibility:visible;}
+    .not-tablet {display:block;visibility:visible;}
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .display-desktop {display:none;visibility:hidden;}
+    .display-tablet {display:block;visibility:visible;}
+    .display-mobile {display:none;visibility:hidden;}
+    .not-mobile {display:block;visibility:visible;}
+    .not-desktop {display:block;visibility:visible;}
+    .not-tablet {display:none;visibility:hidden;}
+}
+@media (min-width: 1025px) {
+    .display-desktop {display:block;visibility:visible;}
+    .display-tablet {display:none;visibility:hidden;}
+    .display-mobile {display:none;visibility:hidden;}
+    .not-mobile {display:block;visibility:visible;}
+    .not-desktop {display:none;visibility:hidden;}
+    .not-tablet {display:block;visibility:visible;}
+}

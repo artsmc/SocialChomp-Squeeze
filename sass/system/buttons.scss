@@ -1,3 +1,6 @@
+ul li a{
+	&.btn-round{height:85%;}
+}
 //ROUND BUTTONS
 .btn-round{
 	position:relative;
@@ -36,6 +39,8 @@
 	background:rgba(#fff,.80);
 }
 .btn-round.white{
+	height:85%;
+	line-height: 32px;
 	color:rgba(#000,.90);
 	background:rgba(#fff,.80);
 }

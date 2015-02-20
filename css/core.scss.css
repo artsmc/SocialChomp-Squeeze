@@ -257,6 +257,9 @@ body {
 .hide {
   display: none; }
 
+ul li a.btn-round {
+  height: 85%; }
+
 .btn-round {
   position: relative;
   border: none;
@@ -305,6 +308,8 @@ body {
   background: rgba(255, 255, 255, 0.8); }
 
 .btn-round.white {
+  height: 85%;
+  line-height: 32px;
   color: rgba(0, 0, 0, 0.9);
   background: rgba(255, 255, 255, 0.8); }
 
@@ -654,7 +659,7 @@ em, p.caption, .helper {
     display: block;
     text-decoration: none;
     position: relative;
-    padding: 2px 10px; }
+    padding: 2px 14px; }
   .nav li a:hover, .nav .brand:hover {
     background-color: #41bdcb;
     -webkit-transition: background-color 350ms ease-in-out;
@@ -697,7 +702,7 @@ em, p.caption, .helper {
     position: absolute;
     font-size: 50%;
     top: 0px;
-    right: 0px;
+    right: -1px;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -1180,7 +1185,7 @@ em, p.caption, .helper {
     display: block;
     text-decoration: none;
     position: relative;
-    padding: 2px 10px; }
+    padding: 2px 14px; }
   .modal.active .checkout .ul-right li {
     padding-right: 5px; }
 
@@ -1619,6 +1624,8 @@ body {
     -moz-transition: all 350ms ease-in-out;
     -ms-transition: all 350ms ease-in-out;
     -o-transition: all 350ms ease-in-out; }
+  .container ul li a.btn-round {
+    height: 85%; }
   .container .btn-round {
     position: relative;
     border: none;
@@ -1659,6 +1666,8 @@ body {
     border: 1.5px solid rgba(0, 0, 0, 0.9);
     background: rgba(255, 255, 255, 0.8); }
   .container .btn-round.white {
+    height: 85%;
+    line-height: 32px;
     color: rgba(0, 0, 0, 0.9);
     background: rgba(255, 255, 255, 0.8); }
   .container .btn-naked {
@@ -1834,8 +1843,9 @@ body {
       -ms-transition: width 0.3s ease-in-out;
       -o-transition: width 0.3s ease-in-out;
       margin-top: 40px;
-      top: 0px;
+      top: 0;
       bottom: 0px;
+      overflow: hidden;
       width: 0px;
       height: 100%; }
       .nav .ul-left:after {
@@ -1848,21 +1858,22 @@ body {
         padding-top: 10px;
         padding-bottom: 0px;
         content: "\f0c9";
-        top: -40px;
+        top: 0px;
         left: 0px;
-        position: absolute;
+        position: fixed;
         z-index: 99;
         width: 30px;
-        height: 30px; }
+        min-height: 30px; }
       .nav .ul-left:hover {
-        width: 320px; }
-        .nav .ul-left:hover li {
-          min-width: 100%; }
+        width: 280px; }
       .nav .ul-left li {
-        width: 0%;
+        width: 295px;
         overflow-x: hidden;
         max-width: none;
-        min-width: 0px;
+        min-width: 0%;
+        text-align: center;
+        position: relative;
+        height: auto;
         -webkit-transition: min-width 0.3s ease-in-out;
         -moz-transition: min-width 0.3s ease-in-out;
         -ms-transition: min-width 0.3s ease-in-out;
@@ -1946,8 +1957,9 @@ body {
       -ms-transition: width 0.3s ease-in-out;
       -o-transition: width 0.3s ease-in-out;
       margin-top: 40px;
-      top: 0px;
+      top: 0;
       bottom: 0px;
+      overflow: hidden;
       width: 0px;
       height: 100%; }
       .nav .ul-left:after {
@@ -1960,21 +1972,22 @@ body {
         padding-top: 10px;
         padding-bottom: 0px;
         content: "\f0c9";
-        top: -40px;
+        top: 0px;
         left: 0px;
-        position: absolute;
+        position: fixed;
         z-index: 99;
         width: 30px;
-        height: 30px; }
+        min-height: 30px; }
       .nav .ul-left:hover {
-        width: 320px; }
-        .nav .ul-left:hover li {
-          min-width: 100%; }
+        width: 280px; }
       .nav .ul-left li {
-        width: 0%;
+        width: 295px;
         overflow-x: hidden;
         max-width: none;
-        min-width: 0px;
+        min-width: 0%;
+        text-align: center;
+        position: relative;
+        height: auto;
         -webkit-transition: min-width 0.3s ease-in-out;
         -moz-transition: min-width 0.3s ease-in-out;
         -ms-transition: min-width 0.3s ease-in-out;

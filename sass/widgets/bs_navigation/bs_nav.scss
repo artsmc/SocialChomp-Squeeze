@@ -1,251 +1,307 @@
 @import "vars";
 @import "../bs_mixin/mixin";
 @mixin make-subnav(){
-    &:hover{
-        ul{
-            max-height:1000px;
-        }
-        ul+a:after{@include rotate(0deg);}
-    }
-    ul{
-        top: 97%;
-        left: 0px;
-        display:block;
-        position: absolute;
-        background:#ddd;
-        height:auto;
-        max-height:0px;
-        overflow: hidden;
-        width:150%;
-        @include transition('max-height 350ms ease-in');
-    }
-    ul+a:after{
-        content:"▼";
-        position: absolute;
-        font-size: 50%;
-        top:0px;
-        right:0px;
-        @include rotate(-90deg);
-        @include transition('all 300ms ease-in');
-    }
-    li{
-        text-align: left;
-        width: 100%;
-    }
-    a{
-        display:block;  
-        height:100%; 
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+&:hover{
+ul{
+max-height:1000px;
+}
+ul+a:after{@include rotate(0deg);}
+}
+ul{
+top: 97%;
+left: 0px;
+display:block;
+position: absolute;
+background:#ddd;
+height:auto;
+max-height:0px;
+overflow: hidden;
+width:150%;
+@include transition('max-height 350ms ease-in');
+}
+ul+a:after{
+content:"▼";
+position: absolute;
+font-size: 50%;
+top:0px;
+right:-1px;
+@include rotate(-90deg);
+@include transition('all 300ms ease-in');
+}
+li{
+text-align: left;
+width: 100%;
+}
+a{
+display:block;
+height:100%;
+text-overflow: ellipsis;
+overflow: hidden;
+}
+}
+@mixin make-mobile-subnav($height:30px){
+min-height:$height;
+display:block;
+&:hover{
+ul{
+max-height:1000px;
+}
+ul+a:after{@include rotate(0deg);}
+}
+ul+a{
+  position:absolute;
+  top:0px;
+  left:0px;right:10px;margin:auto;
+  height:$height;
+}
+ul{
+left: 0px;
+margin-top:$height;
+display:block;
+position: relative;
+background:#ddd;
+height:auto;
+max-height: 0px;
+overflow: hidden;
+width:100%;
+@include transition('max-height 350ms ease-in');
+}
+ul+a:after{
+content:"▼";
+position: absolute;
+font-size: 50%;
+top:0px;
+right:10px;
+@include rotate(-90deg);
+@include transition('all 300ms ease-in');
+}
+li{
+text-align: left;
+width: 100%;
+}
+a{
+display:block;
+height:100%;
+text-overflow: ellipsis;
+overflow: hidden;
+}
 }
 @mixin make-mobile-navbar($height:30px,$device:1){
-    display:block;
-    min-height:$height+1px/$device;
-    position:relative;
-    z-index:15;
-    width:100%;
-    .brand{position: relative;right:20px;}
-    ul{left:50px;}
-    .ul-left{
-        &:after{
-            cursor: pointer;
-            overflow:hidden;
-            font-family: 'FontAwesome';
-            font-size:20px;
-            text-align: center;
-            padding: 5px;
-            padding-top: 10px;
-            padding-bottom: 0px;
-            content:"\f0c9";
-            top:-1 * $height;
-            left:0px;
-            position: absolute;
-            z-index: 99;
-            width:30px;
-            height:$height - 10px;
-        }
-        &:hover{  
-          width:320px;
-          li{min-width:100%;}
-        }
-        position: fixed;
-        left:0px;
-        @include transition(width .3s ease-in-out);
-        margin-top:$height;
-        top:0px;bottom:0px;
-        width:0px;
-        height:100%;
-        li{width:0%;overflow-x:hidden;max-width: none;min-width: 0px;@include transition(min-width .3s ease-in-out);}
-    }
+display:block;
+min-height:$height+1px/$device;
+position:relative;
+z-index:15;
+width:100%;
+.brand{position: relative;right:20px;}
+ul{left:50px;}
+.ul-left{
+&:after{
+cursor: pointer;
+overflow:hidden;
+font-family: 'FontAwesome';
+font-size:20px;
+text-align: center;
+padding: 5px;
+padding-top: 10px;
+padding-bottom: 0px;
+content:"\f0c9";
+top:0px;
+left:0px;
+position: fixed;
+z-index: 99;
+width:30px;
+min-height:$height - 10px;
+}
+&:hover{
+width:280px;
+}
+position: fixed;
+left:0px;
+@include transition(width .3s ease-in-out);
+margin-top:$height;
+top:0;bottom:0px;
+overflow:hidden;
+width:0px;
+height:100%;
+li{
+  width:295px;
+  overflow-x:hidden;
+  max-width: none;
+  min-width: 0%;
+  text-align: center;
+  position:relative;
+  height:auto;
+  @include transition(min-width .3s ease-in-out);
+}
+}
 }
 @mixin make-navbar($height:30px,$device:1){
-    @include transition(height .3s ease-in-out);
-    display:block;
-    min-height:$height/$device;
-    position:relative;
-    z-index:15;
-    width:100%;
-    
-    ul{
-        float:left;
-        display:block;
-        height:$height/$device;  
-        width:auto;
-        margin:0px;padding:0px;
-        margin-right:-4px/$device;
-        position:relative;
-    }
-    .ul-right{
-        position:absolute;right:10px/$device;
-        li{
-            display:block;
-            padding-right:2px;
-        }
-    }
-    .ul-left{float:left;position: static;}
-    .brand{padding:0px 10px/$device;a{margin-top:12px;}}
-    ul li {
-        float:left;
-        position:relative;
-        min-width: 110px;
-        max-width:225px;
-        text-align: center;
-        height: $height - 1px;
-        margin-right:-4px/$device;
-        text-indent:0px;
-        list-style:none;
-        line-height:$height/$device;
-    }
-    a{
-        display:block;
-        text-decoration:none; 
-        position:relative;
-        padding:2px/$device 10px/$device;
-    }
+@include transition(height .3s ease-in-out);
+display:block;
+min-height:$height/$device;
+position:relative;
+z-index:15;
+width:100%;
+ul{
+float:left;
+display:block;
+height:$height/$device;
+width:auto;
+margin:0px;padding:0px;
+margin-right:-4px/$device;
+position:relative;
+}
+.ul-right{
+position:absolute;right:10px/$device;
+li{
+display:block;
+padding-right:2px;
+}
+}
+.ul-left{float:left;position: static;}
+.brand{padding:0px 10px/$device;a{margin-top:12px;}}
+ul li {
+float:left;
+position:relative;
+min-width: 110px;
+max-width:225px;
+text-align: center;
+height: $height - 1px;
+margin-right:-4px/$device;
+text-indent:0px;
+list-style:none;
+line-height:$height/$device;
+}
+a{
+display:block;
+text-decoration:none;
+position:relative;
+padding:2px/$device 14px/$device;
+}
 }
 @mixin color-nav($color:#ddd){
-    background-color:$color;
-    li a:hover,.brand:hover{background-color:lighten($color,15%);@include transition('background-color 350ms ease-in-out');}
-    color: color-contrast($color);
-    a{color: color-contrast($color);}
-    &:hover:after{background-color:lighten($color,15%);@include transition('background-color 350ms ease-in-out');}
+background-color:$color;
+li a:hover,.brand:hover{background-color:lighten($color,15%);@include transition('background-color 350ms ease-in-out');}
+color: color-contrast($color);
+a{color: color-contrast($color);}
+&:hover:after{background-color:lighten($color,15%);@include transition('background-color 350ms ease-in-out');}
 }
+
 @mixin make-side-nav($color:red){
-    border-top:3px solid $color;
-    span.nav-title{
-        @include font-size(25);
-        padding:5px;
-        font-family: 'league_gothicregular';
-        text-transform: uppercase;
-        font-weight: normal;
-        letter-spacing: 0px;
-        word-spacing: 3px;
-        background:#fff;
-        display:block;
-        margin:auto;
-        text-align: center;
-    }
-    ul{
-        overflow: hidden;
-        display: block;
-        width: 100%;
-        height: auto;
-        li.expand{
-            a{color:#000;}
-            span.expand{
-                i{@include rotate (0deg)}
-            }
-            ul{
-                right: 3px;
-                max-height: 600px!important;
-                li{
-                    z-index: 99;
-                    border-top: 1px solid #f2f2f2;
-                    border-left: none;
-                }
-                li.active{
-                    z-index: 99;
-                    border-top: 1px solid #f2f2f2;
-                    border-left:3px solid $color;
-                }
-            }
-        }
-        li.active{
-            background: #fff;
-            border-left:3px solid $color;
-            a{color:#000;}
-            span.expand{
-                i{@include rotate (0deg)}
-            }
-            ul{
-                right: 3px;
-                max-height: 600px!important;
-                li{
-                    z-index: 99;
-                    border-top: 1px solid #f2f2f2;
-                    border-left: none;
-                }
-                li.active{
-                    z-index: 99;
-                    border-top: 1px solid #f2f2f2;
-                    border-left:3px solid $color;
-                }
-            }
-        }
-        li{
-            @include transition('max-height .8s ease-in-out');
-            position: relative;
-            background: #f2f2f2;
-            list-style: none;
-            display: block;
-            border-top: 1px solid #ccc;
-            min-height:44px;
-            line-height: 44px;
-            text-align: left;
-            &:last-child{
-                border-bottom: 1px solid #ccc; 
-            }
-            a{padding-left:5px;color:#4c4c4c;text-decoration: none;height:100%; width:80%;display:block;}
-            span.expand{
-                position: absolute;
-                width:25px;
-                top:0px;
-                right:0px;
-                i{text-align: center;@include transition('all .5s ease-in-out'); @include rotate (180deg)}
-            }
-            &:hover{
-                ul{
-                    height: 100%;
-                    max-height: 600px;
-                } 
-                span.expand{
-                    i{@include rotate (0deg)}
-                }
-            }
-            ul{
-                @include transition('max-height .8s ease-in-out');
-                display: block;
-                overflow: hidden;
-                position: relative;
-                right: 0px;
-                width: 103%;
-                text-indent: 0px;
-                max-height: 0px;
-                height:100%;
-                li{
-                    border-bottom: none;
-                    border-top: 1px solid #f2f2f2;
-                    background: #ccc;
-                    padding-left:0px;
-                    a{color:#6a6a6a;text-decoration: none;padding-left:10px;height:100%; width:80%;display:block;}
-                }
-                li.active{
-                    z-index: 99;
-                    border-top: 1px solid #f2f2f2;
-                    border-left:3px solid $color;
-                }
-            }
-        }
-    }
+	border-top:3px solid $color;
+	span.nav-title{
+		@include font-size(25);
+		padding:5px;
+		font-family: 'league_gothicregular';
+		text-transform: uppercase;
+		font-weight: normal;
+		letter-spacing: 0px;
+		word-spacing: 3px;
+		background:#fff;
+		display:block;
+		margin:auto;
+		text-align: center;
+	}
+	ul{
+		overflow: hidden;
+		display: block;
+		width: 100%;
+		height: auto;
+		li.expand{
+			a{color:#000;}
+			span.expand{
+				i{@include rotate (0deg)}
+			}
+			ul{
+				right: 3px;
+				max-height: 600px!important;
+				li{
+					z-index: 99;
+					border-top: 1px solid #f2f2f2;
+					border-left: none;
+				}
+				li.active{
+					z-index: 99;
+					border-top: 1px solid #f2f2f2;
+					border-left:3px solid $color;
+				}
+			}
+		}
+		li.active{
+			background: #fff;
+			border-left:3px solid $color;
+			a{color:#000;}
+			span.expand{
+				i{@include rotate (0deg)}
+			}
+			ul{
+				right: 3px;
+				max-height: 600px!important;
+				li{
+					z-index: 99;
+					border-top: 1px solid #f2f2f2;
+					border-left: none;
+				}
+				li.active{
+					z-index: 99;
+					border-top: 1px solid #f2f2f2;
+					border-left:3px solid $color;
+				}
+			}
+		}
+		li{
+			@include transition('max-height .8s ease-in-out');
+			position: relative;
+			background: #f2f2f2;
+			list-style: none;
+			display: block;
+			border-top: 1px solid #ccc;
+			min-height:44px;
+			line-height: 44px;
+			text-align: left;
+			&:last-child{
+				border-bottom: 1px solid #ccc; 
+			}
+			a{padding-left:5px;color:#4c4c4c;text-decoration: none;height:100%; width:80%;display:block;}
+			span.expand{
+				position: absolute;
+				width:25px;
+				top:0px;
+				right:0px;
+				i{text-align: center;@include transition('all .5s ease-in-out'); @include rotate (180deg)}
+			}
+			&:hover{
+				ul{
+					height: 100%;
+					max-height: 600px;
+				} 
+				span.expand{
+					i{@include rotate (0deg)}
+				}
+			}
+			ul{
+				@include transition('max-height .8s ease-in-out');
+				display: block;
+				overflow: hidden;
+				position: relative;
+				right: 0px;
+				width: 103%;
+				text-indent: 0px;
+				max-height: 0px;
+				height:100%;
+				li{
+					border-bottom: none;
+					border-top: 1px solid #f2f2f2;
+					background: #ccc;
+					padding-left:0px;
+					a{color:#6a6a6a;text-decoration: none;padding-left:10px;height:100%; width:80%;display:block;}
+				}
+				li.active{
+					z-index: 99;
+					border-top: 1px solid #f2f2f2;
+					border-left:3px solid $color;
+				}
+			}
+		}
+	}
 }
